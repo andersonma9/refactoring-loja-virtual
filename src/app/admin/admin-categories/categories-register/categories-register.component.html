@@ -1,0 +1,19 @@
+<form [formGroup]="categoryRegisterForm">
+    <div class="d-flex flex-wrap">
+        <div class="col-12 col-md-8 p-0 pr-md-2">
+            <mat-form-field class="col-12 p-0">
+                <mat-label>Informe o nome da categoria</mat-label>
+                <input formControlName="nome" type="text" matInput autocomplete="off">
+                <mat-error>Por favor, informe o nome para continuar!</mat-error>
+            </mat-form-field>
+        </div>
+        <div
+            class="mt-2 mt-md-0 col-12 col-md-4 d-flex flex-wrap align-items-center justify-content-end justify-content-md-end p-0 pl-md-2">
+            <div class="col-12 col-md-6 mb-2 mb-md-0 p-0 pr-md-1">
+                <button [disabled]="categoryRegisterForm.invalid" mat-raised-button class="col-12 confirmButton"
+                    (click)="registerCategory(categoryRegisterForm)">Cadastrar</button>
+                <button routerLink="../" mat-raised-button class="col-12 mt-2" color="accent">Retornar</button>
+            </div>
+        </div>
+    </div>
+</form>

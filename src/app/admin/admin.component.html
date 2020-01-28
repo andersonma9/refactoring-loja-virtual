@@ -1,0 +1,22 @@
+<header>
+    <app-admin-toolbar [sideNavState]="opened" (sideNavState$)="changeSidenavState($event)" [userInfo]="userInfo">
+    </app-admin-toolbar>
+</header>
+<mat-sidenav-container class="main-container">
+    <mat-sidenav (openedChange)="changed($event)" class="sidenav" [mode]="sideMode" [opened]="opened">
+        <ul class="mt-2 p-0">
+            <li *ngFor="let route of routesList">
+                <a routerLink="{{route.address}}" (click)="closeSideNav()" routerLinkActive="active">{{route.name}}
+                    <span >
+                        <i class="fas fa-chevron-right"></i>
+                    </span>
+                </a>
+            </li>
+        </ul>
+    </mat-sidenav>
+    <mat-sidenav-content class="drawer-content">
+        <main class="container mt-2">
+            <router-outlet></router-outlet>
+        </main>
+    </mat-sidenav-content>
+</mat-sidenav-container>

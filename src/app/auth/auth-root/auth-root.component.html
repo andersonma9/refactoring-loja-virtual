@@ -1,0 +1,6 @@
+<header>
+    <app-toolbar [sideNavState]="sideMode" (sideNavState$)="toggleSideNav($event)"></app-toolbar>
+</header>
+<main class="container pb-5">
+    <router-outlet></router-outlet>
+</main>

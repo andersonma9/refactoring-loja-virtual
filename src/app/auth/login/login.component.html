@@ -1,0 +1,33 @@
+<div class="col-12 col-md-6 mx-auto content">
+    <form [formGroup]="loginForm">
+        <mat-card>
+            <div class="login-card-header">
+                <div class="h5">Faça seu login</div>
+            </div>
+            <mat-card-content>
+                <mat-form-field class="col-12 col-md-6">
+                    <mat-label>Usuário</mat-label>
+                    <input formControlName="username" type="text" matInput>
+                </mat-form-field>
+                <mat-form-field class="col-12 col-md-6">
+                    <mat-label>Senha</mat-label>
+                    <input formControlName="password" type="password" matInput>
+                </mat-form-field>
+
+                <div class="col d-flex justify-content-center mb-2">
+                    <button mat-raised-button color="primary" (click)="login(loginForm)">Login</button>
+                    <button mat-raised-button class="ml-2">Recuperar Senha</button>
+                </div>
+                <mat-divider></mat-divider>
+                <div class="d-flex flex-column align-items-center mt-3">
+                    <div class="h6">
+                        Ainda não possui conta?
+                    </div>
+                    <div>
+                        <button routerLink="../register" mat-raised-button>Cadastre-se</button>
+                    </div>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </form>
+</div>

@@ -1,0 +1,23 @@
+<ng-container *ngIf="categoryInfo !== undefined">
+    <div class="h4">Categoria: {{categoryInfo.nome}}</div>
+    <mat-list>
+        <mat-list-item>
+          <mat-icon mat-list-icon><i class="fas fa-wallet"></i></mat-icon>
+          <h4 mat-line>Total de Vendas</h4>
+          <p mat-line> {{categoryInfo.receita | customCurrency}} </p>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>
+            <mat-icon mat-list-icon><i class="fas fa-chart-bar"></i></mat-icon>
+            <h4 mat-line>Acesso / Compras Efetivadas</h4>
+            <p mat-line> {{categoryInfo.qtd_acessos + " acessos / " + categoryInfo.n_vendas + " vendas"}} </p>
+          </mat-list-item>
+    </mat-list>
+    <mat-divider class="mb-2"></mat-divider>
+    <div class="col-12 d-flex justify-content-end p-0">
+      <div class="col-12 col-md-2 p-0">
+        <button mat-raised-button class="removeButton col-12" (click)="confirmRemoval()">Remover Categoria</button>
+        <button mat-raised-button class="col-12 mt-2" color="accent" routerLink="../../">Retornar</button>
+      </div>
+    </div>
+</ng-container>

@@ -1,0 +1,83 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row class="container">
+        <button *ngIf="!checkLoginRoute()" (click)="toggleSideNav()" class="toggle-menu">
+            <i class="fas fa-bars"></i>
+        </button>
+        <span class="col-1 pl-0" *ngIf="!checkLoginRoute()">
+            <button mat-button routerLink="">Loja Virtual</button>
+        </span>
+        <span class=" pl-0 mx-auto" *ngIf="checkLoginRoute()">
+            <button mat-button routerLink="">Loja Virtual</button>
+        </span>
+
+        <div *ngIf="!checkLoginRoute()" class="col-6 mx-auto d-none d-md-inline-block">
+            <div class="search-wraper">
+                <input type="text" class="search-input" placeholder="Pesquise aqui...">
+                <button type="submit"><i class="fa fa-search"></i></button>
+            </div>
+        </div>
+        <div class="col-4 ml-auto d-inline-block d-md-none" *ngIf="!checkLoginRoute()">
+            <div class="d-flex justify-content-end">
+                <div class="dropdown mr-3" *ngIf="!checkLogin()">
+                    <i class="fas fa-user"></i>
+                    <div class="dropdown-content">
+                        <button (click)="saveRoute()" routerLink="/auth/login" mat-raised-button>Faça seu login</button>
+                        <small class="mt-2">Ainda não possui cadastro?</small>
+                        <small><a routerLink="/auth/register">Faz o seu aqui</a></small>
+                    </div>
+                </div>
+                <div class="dropdown mr-3" *ngIf="checkLogin()">
+                    <i class="fas fa-user"></i>
+                    <div class="dropdown-content">
+                        <span style="color: black;">Bem-vindo(a), {{userInfo.nome}}!</span>
+                        <small class="mt-2"><button mat-button>Acesse seu perfil</button></small>
+                        <small *ngIf="loginResponse.is_staff == true"><button mat-button routerLink="admin">Painel Administrativo</button></small>
+                        <small><button mat-button (click)="logout()">Sair</button></small>
+                    </div>
+                </div>
+
+                <button class="chart-button">
+                    <i class="fas fa-shopping-cart"></i>
+                </button>
+            </div>
+        </div>
+        <div class="d-none d-md-flex justify-content-end col-2 ml-auto" *ngIf="!checkLoginRoute()">
+            <div class="dropdown" *ngIf="!checkLogin()">
+                <button mat-button>
+                    <i class="fas fa-user mr-2"></i>
+                    Entre ou cadastre-se
+                </button>
+                <div class="dropdown-content">
+                    <button (click)="saveRoute()" routerLink="auth/login" mat-raised-button>Faça seu login</button>
+                    <small class="mt-2">Ainda não possui cadastro?</small>
+                    <small><a routerLink="/auth/register">Faz o seu aqui</a></small>
+                </div>
+            </div>
+            <div class="dropdown" *ngIf="checkLogin()">
+                <button mat-button>
+                    <i class="fas fa-user mr-2"></i>
+                    Bem-vindo(a), {{userInfo.nome}}
+                </button>
+                <div class="dropdown-content">
+                    <small class="mb-2"><button mat-button>Acesse seu perfil</button></small>
+                    <small *ngIf="loginResponse.is_staff == true" class="mb-2"><button mat-button routerLink="admin">Painel Administrativo</button></small>
+                    <small><button mat-button (click)="logout()">Sair</button></small>
+                </div>
+            </div>
+            <div>
+                <button mat-button>
+                    <i class="fas fa-shopping-cart mr-2"></i>
+                    Carrinho
+                </button>
+            </div>
+        </div>
+    </mat-toolbar-row>
+    <mat-toolbar-row *ngIf="!checkLoginRoute()" class="d-md-none">
+        <div class="col-12 p-0">
+            <div class="search-wraper">
+                <input type="text" class="search-input">
+                <button type="submit"><i class="fa fa-search"></i></button>
+            </div>
+        </div>
+    </mat-toolbar-row>
+</mat-toolbar>

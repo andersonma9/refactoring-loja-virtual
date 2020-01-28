@@ -1,0 +1,28 @@
+<div class="mat-elevation-z1">
+    <mat-form-field class="mt-2">
+        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Pesquisar categoria" autocomplete="off">
+    </mat-form-field>
+    <mat-table [dataSource]="dataSource">
+        <ng-container matColumnDef="name">
+            <mat-header-cell *matHeaderCellDef> Categoria </mat-header-cell>
+            <mat-cell *matCellDef="let category"> {{category.nome}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="actions">
+            <mat-header-cell *matHeaderCellDef>
+                <button routerLink="../register" class="ml-auto" mat-button>
+                    <span>
+                        Nova Categoria
+                    </span>
+                    <span><i class="fas fa-plus-square ml-2"></i></span>
+                </button>
+            </mat-header-cell>
+            <mat-cell *matCellDef="let category"> <button style="margin-left: auto;" routerLink="../manage/{{category.id}}" mat-button>Gerenciar</button>
+            </mat-cell>
+        </ng-container>
+        
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+</div>

@@ -1,0 +1,11 @@
+<header>
+    <app-toolbar [userInfo]="userInfo" [loginResponse]="loginResponse" [sideNavState]="sideMode" (sideNavState$)="toggleSideNav($event)"></app-toolbar>
+</header>
+<mat-sidenav-container class="main-container" >
+    <mat-sidenav (openedChange)="changed($event)" class="sidenav" [mode]="sideMode" [opened]="opened">Sidenav content</mat-sidenav>
+    <mat-sidenav-content class="drawer-content">
+        <main class="container">
+            <router-outlet></router-outlet>
+        </main>
+    </mat-sidenav-content>
+</mat-sidenav-container>

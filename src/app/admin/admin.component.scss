@@ -1,0 +1,40 @@
+.main-container {
+  height: calc(100% - 56px);
+}
+
+@media (min-width: 768px) {
+  .main-container {
+    height: calc(100% - 64px);
+  }
+}
+
+.sidenav {
+  // border-top: 1px solid white;
+  background-color: #263238;
+}
+
+ul {
+  list-style: none;
+}
+li {
+  margin: 5px 0;
+  padding: 0 15px;
+  width: 100%;
+}
+
+a {
+  display: block;
+  width: 100%;
+  color: white;
+}
+
+a:hover {
+  // color: black;
+  font-weight: bold;
+}
+
+.active {
+  // color: black;
+  font-weight: bold;
+  // font-weight: 500;
+}

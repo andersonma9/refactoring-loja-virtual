@@ -1,0 +1,18 @@
+.drawer-content, .sidenav {
+    background-color: white;
+}
+.sidenav {
+    width: 260px;
+    height: 100%;
+}
+.main-container {
+    height: calc(100% - 112px);
+    width: 100%;
+}
+
+@media(min-width: 768px) {
+   .main-container {
+    height: calc(100% - 64px);
+    width: 100%;
+} 
+}

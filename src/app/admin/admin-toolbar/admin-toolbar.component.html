@@ -1,0 +1,20 @@
+<mat-toolbar color="accent">
+    <mat-toolbar-row class="container">
+        <button (click)="toggleSideNav()" class="toggle-menu">
+            <i class="fas fa-bars"></i>
+        </button>
+        <button mat-button routerLink="">Loja Virtual</button>
+        <div class="d-flex justify-content-end col ml-auto">
+            <button mat-button>
+                <div class="d-none d-md-inline-block">
+                    Bem-vindo(a), {{userInfo.nome}}!
+                </div>
+            </button>
+            <div>
+                <button (click)="logout()" mat-button>
+                    Sair
+                </button>
+            </div>
+        </div>
+    </mat-toolbar-row>
+</mat-toolbar>
